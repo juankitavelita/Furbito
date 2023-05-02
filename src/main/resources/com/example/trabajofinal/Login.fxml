@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.LoginController">
+   <children>
+      <Label layoutX="253.0" layoutY="63.0" text="INICIO SESIÓN">
+         <font>
+            <Font name="Droid Sans Mono" size="12.0" />
+         </font></Label>
+      <Label layoutX="109.0" layoutY="131.0" text="Usuario:">
+         <font>
+            <Font name="Droid Sans Mono" size="12.0" />
+         </font></Label>
+      <Label layoutX="109.0" layoutY="200.0" text="Contraseña:">
+         <font>
+            <Font name="Droid Sans Mono" size="12.0" />
+         </font></Label>
+      <PasswordField fx:id="pswContra" layoutX="226.0" layoutY="196.0" promptText="Contraseña" />
+      <TextField fx:id="txtUsuario" layoutX="226.0" layoutY="127.0" promptText="Usuario" />
+      <Button fx:id="btnEntrar" layoutX="226.0" layoutY="256.0" mnemonicParsing="false" onAction="#iniciarSesion" text="Entrar">
+         <font>
+            <Font name="Droid Sans Mono" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnVolver" layoutX="315.0" layoutY="256.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+         <font>
+            <Font name="Droid Sans Mono" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorLabel" layoutX="142.0" layoutY="324.0" prefHeight="17.0" prefWidth="316.0" />
+   </children>
+</AnchorPane>
