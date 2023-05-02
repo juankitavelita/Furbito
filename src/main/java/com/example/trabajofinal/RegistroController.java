@@ -36,30 +36,39 @@ public class RegistroController {
         String usuario = this.txtUsuario.getText();
         String contrasena = this.pswContra.getText();
 
-        try (Connection conn = Conexion.getConnection();
-             Statement stmt = conn.createStatement()) {
+        if (nombre.isEmpty() || apellidos.isEmpty() || usuario.isEmpty() || contrasena.isEmpty()) {
+            // Lanzar una excepción si algún campo está vacío
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Faltan datos obligatorios");
+            alert.setContentText("Por favor ingresa todos los campos obligatorios.");
+            alert.showAndWait();
+        } else {
+            try (Connection conn = Conexion.getConnection();
+                 Statement stmt = conn.createStatement()) {
 
-            String sql = "INSERT INTO usuarios (nombre, apellido, usuario, contrasena) VALUES ('" + nombre +
-                    "', '" + apellidos + "', '" + usuario + "', '" + contrasena + "')";
+                String sql = "INSERT INTO usuarios (nombre, apellido, usuario, contrasena) VALUES ('" + nombre +
+                        "', '" + apellidos + "', '" + usuario + "', '" + contrasena + "')";
 
-            stmt.executeUpdate(sql);
+                stmt.executeUpdate(sql);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 
-            Parent root = loader.load();
+                Parent root = loader.load();
 
-            MenuController controlador = loader.getController();
+                MenuController controlador = loader.getController();
 
-            Scene scene = new Scene(root);
+                Scene scene = new Scene(root);
 
 
-            Stage stage = (Stage) btnGuardar.getScene().getWindow();
-            stage.setScene(scene);
+                Stage stage = (Stage) btnGuardar.getScene().getWindow();
+                stage.setScene(scene);
 
-            stage.show();
+                stage.show();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
