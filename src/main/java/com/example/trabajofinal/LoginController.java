@@ -59,20 +59,24 @@ public class LoginController {
         try {
             if (conexion.verificarUsuario(nombreUsuario, contraseña)) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Vista.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaInicio.fxml"));
 
                 Parent root = loader.load();
 
-                VistaController controlador = loader.getController();
+                InicioController controlador = loader.getController();
 
                 Scene scene = new Scene(root);
 
-                Stage stage = (Stage) btnVolver.getScene().getWindow();
+                Stage stage = (Stage) btnEntrar.getScene().getWindow();
                 stage.setScene(scene);
 
                 stage.show();
             } else {
-                errorLabel.setText("Nombre de usuario o contraseña inválido");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Usuario y/o contraseña invalido");
+                alert.setContentText("Por favor ingresa los datos correctos.");
+                alert.showAndWait();
             }
         } catch (IOException ex){
             Alert alert = new Alert(Alert.AlertType.ERROR);
