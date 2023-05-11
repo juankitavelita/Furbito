@@ -29,6 +29,15 @@ public class RegistroController {
     @FXML
     private Button btnVolver;
 
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/futbol";
+
+    static final String USER = "root";
+    static final String PASS = "631534833Poly";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(DB_URL, USER, PASS);
+    }
     @FXML
     public void guardar(ActionEvent event) {
         String nombre = this.txtNombre.getText();
@@ -44,7 +53,7 @@ public class RegistroController {
             alert.setContentText("Por favor ingresa todos los campos obligatorios.");
             alert.showAndWait();
         } else {
-            try (Connection conn = Conexion.getConnection();
+            try (Connection conn = RegistroController.getConnection();
                  Statement stmt = conn.createStatement()) {
 
                 String sql = "INSERT INTO usuarios (nombre, apellido, usuario, contrasena) VALUES ('" + nombre +
@@ -74,7 +83,7 @@ public class RegistroController {
 
     @FXML
     public void volver(ActionEvent event) {
-            try{
+        try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 
             Parent root = loader.load();
@@ -91,12 +100,12 @@ public class RegistroController {
             // Muestra la ventana de registro
             stage.show();
         } catch (IOException ex){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("Error");
-                alert.setContentText(ex.getMessage());
-                alert.showAndWait();
-            }
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText(ex.getMessage());
+            alert.showAndWait();
+        }
     }
 
 }
