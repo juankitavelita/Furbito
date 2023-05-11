@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.InicioController">
+    <children>
+        <Label layoutX="209.0" layoutY="43.0" text="¿Que datos quieres ver?">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button layoutX="328.0" layoutY="248.0" mnemonicParsing="false" text="Competiciones europeas"
+                fx:id="btnCompEu"/>
+        <Button layoutX="153.0" layoutY="176.0" mnemonicParsing="false" text="Equipos"
+                fx:id="btnEquipos"/>
+        <Button layoutX="157.0" layoutY="96.0" mnemonicParsing="false" text="Jugadores"
+                fx:id="btnJugadores" onAction="#verJugadores"/>
+        <Button layoutX="328.0" layoutY="176.0" mnemonicParsing="false" text="Competiciones de selecciones"
+                fx:id="btnCompSel"/>
+        <Button layoutX="153.0" layoutY="248.0" mnemonicParsing="false" text="Selecciones"
+                fx:id="btnSel"/>
+        <Button layoutX="328.0" layoutY="96.0" mnemonicParsing="false" text="Ligas"
+                fx:id="btnLigas"/>
+    </children>
+</AnchorPane>
