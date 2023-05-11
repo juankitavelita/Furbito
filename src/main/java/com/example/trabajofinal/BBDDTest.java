@@ -58,12 +58,12 @@ public class BBDDTest {
                 smt.executeUpdate("INSERT INTO equipo (nombre, ranking_fifa, num_jugadores, id_liga) VALUES ('" + nombre_equipo[i] + "', " + ranking[i] + ", " + num_jug_equipo[i] + ", " + liga[i] + ")");
             }
             //jugadores
-            String nombre_jugador[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben"};
-            String apellido_jugador[] = {"Ronaldo", "Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias"};
-            String posición[] = {"DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF"};
-            int dorsal[] = {7, 10, 3, 1, 22, 21, 23, 13, 10, 17, 3};
-            int equipo[] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3};
-            int seleccion[] = {9, 7, 3, 4, 3, 6, 2, 10, 5, 4, 9};
+            String nombre_jugador[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben", "Eder", "Lionel", "Marco", "Presnel", "Gianluigi", ""};
+            String apellido_jugador[] = {"Ronaldo", "Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias", "Moraes", "Messi", "Verratti", "Kimpembe", "Donnarumma"};
+            String posición[] = {"DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR"};
+            int dorsal[] = {7, 10, 3, 1, 22, 21, 23, 13, 10, 17, 3, 31, 30, 6, 3, 99};
+            int equipo[] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4};
+            int seleccion[] = {9, 7, 3, 4, 3, 6, 2, 10, 5, 4, 9, 3, 1, 8, 2, 8};
             for (int i = 0; i < nombre_equipo.length; i++){
             }
         }catch (Exception e){
