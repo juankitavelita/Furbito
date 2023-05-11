@@ -16,12 +16,6 @@ public class BBDDTest {
                 return;
             }
             // creación de las tablas
-            //competiciones de selecciones
-            smt.executeUpdate("CREATE TABLE comp_selecciones (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
-                    "nombre VARCHAR(20), zona VARCHAR(20), num_selecciones INT)");
-            //competiciones europeas de equipos
-            smt.executeUpdate("CREATE TABLE europa (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
-                    "nombre VARCHAR(20), num_equipos INT)");
             //competiciones nacionales (ligas)
             smt.executeUpdate("CREATE TABLE nacional (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
                     "nombre VARCHAR(20), pais VARCHAR(20) UNIQUE, num_equipos INT)");
@@ -31,7 +25,7 @@ public class BBDDTest {
             //equipos
             smt.executeUpdate("CREATE TABLE equipo (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
                     "nombre VARCHAR(20), ranking_fifa INT UNIQUE, num_jugadores INT, id_liga INT, " +
-                    "id_europa INT, FOREIGN KEY (id_liga) REFERENCES nacional(id), FOREIGN KEY (id_europa) REFERENCES europa(id))");
+                    "FOREIGN KEY (id_liga) REFERENCES nacional(id))");
             //juagdores
             smt.executeUpdate("CREATE TABLE futbolista (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
                     "nombre VARCHAR(20), apellido VARCHAR(20), posicion VARCHAR(5), dorsal INT, id_equipo INT, id_seleccion INT," +
@@ -41,19 +35,6 @@ public class BBDDTest {
                     "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contraseña VARCHAR(20))");
 
             // introducción de datos
-            //comp_selecciones
-            String com_seleccion[] = {"Eurocopa", "Copa America", "Mundial"};
-            String zona[] = {"Europa", "Sudamerica", "Mundial"};
-            int num_selec[] = {53, 10, 32};
-            for (int i = 0; i < com_seleccion.length; i++){
-                smt.executeUpdate("INSERT INTO comp_selecciones (nombre, zona, num_selecciones) VALUES ('" + com_seleccion[i] + "', '" + zona[i] + "', " + num_selec[i] + ")");
-            }
-            //europa
-            String nombre_europa[] = {"Champions League", "Europa League", "Conference League"};
-            int num_equipo_eu[] = {32, 32, 72};
-            for (int i = 0; i < nombre_europa.length; i++){
-                smt.executeUpdate("INSERT INTO europa (nombre, num_equipos) VALUES ('" + nombre_europa[i] + "', " + num_equipo_eu[i] + ")");
-            }
             //nacional
             String nombre_nacional[] = {"LaLiga", "Premier League", "Ligue One", "Bundesliga", "Serie A"};
             String pais[] = {"España", "Inglaterra", "Francia", "Alemania", "Italia"};
@@ -73,9 +54,8 @@ public class BBDDTest {
             int ranking[] = {2, 5, 1, 15, 17, 31, 3, 14, 18, 4};
             int num_jug_equipo[] = {24, 30, 25, 29, 22, 25, 27, 21, 23, 26};
             int liga[] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
-            int europa[] = {1, 2, 1, 2, 1, 3, 1, 3, 2, 1};
             for (int i = 0; i < nombre_equipo.length; i++){
-                smt.executeUpdate("INSERT INTO equipo (nombre, ranking_fifa, num_jugadores, id_liga, id_europa) VALUES ('" + nombre_equipo[i] + "', " + ranking[i] + ", " + num_jug_equipo[i] + ", " + liga[i] + ", " + europa[i] + ")");
+                smt.executeUpdate("INSERT INTO equipo (nombre, ranking_fifa, num_jugadores, id_liga) VALUES ('" + nombre_equipo[i] + "', " + ranking[i] + ", " + num_jug_equipo[i] + ", " + liga[i] + ")");
             }
             //jugadores
             String nombre_jugador[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben"};
