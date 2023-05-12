@@ -51,4 +51,30 @@ public class InicioController {
             alert.showAndWait();
         }
     }
+    @FXML
+    protected void verLigas(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ligas.fxml"));
+
+            Parent root = loader.load();
+
+            LigasController controlador = loader.getController();
+
+            // Crea la escena de la ventana de registro
+            Scene scene = new Scene(root);
+
+            // Obtiene la etapa actual (ventana) y establece la escena de la ventana de jugadores
+            Stage stage = (Stage) btnLigas.getScene().getWindow();
+            stage.setScene(scene);
+
+            // Muestra la ventana de registro
+            stage.show();
+        } catch (IOException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText(ex.getMessage());
+            alert.showAndWait();
+        }
+    }
 }

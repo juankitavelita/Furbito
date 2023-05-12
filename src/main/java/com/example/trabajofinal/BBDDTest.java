@@ -32,7 +32,7 @@ public class BBDDTest {
                     "FOREIGN KEY (id_equipo) REFERENCES equipo(id), FOREIGN KEY (id_seleccion) REFERENCES seleccion (id))");
             //datos de usuarios registrados
             smt.executeUpdate("CREATE TABLE usuarios (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
-                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contraseña VARCHAR(20))");
+                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20))");
 
             // introducción de datos
             //nacional
@@ -59,7 +59,7 @@ public class BBDDTest {
             }
             //jugadores
             String nombre_jugador[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben", "Eder", "Lionel", "Marco", "Presnel", "Gianluigi", ""};
-            String apellido_jugador[] = {"Ronaldo", "Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias", "Moraes", "Messi", "Verratti", "Kimpembe", "Donnarumma"};
+            String apellido_jugador[] = {"Ronaldo", "Modric", "Militao", "Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias", "Moraes", "Messi", "Verratti", "Kimpembe", "Donnarumma"};
             String posición[] = {"DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR"};
             int dorsal[] = {7, 10, 3, 1, 22, 21, 23, 13, 10, 17, 3, 31, 30, 6, 3, 99};
             int equipo[] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4};

@@ -29,7 +29,7 @@ public class LoginController {
         try {
             // Conectarse a la base de datos
             conn = DriverManager.getConnection("jdbc:mysql://localhost/futbol", "root",
-                    "631534833Poly");
+                    "contraseña");
         } catch (SQLException e) {
             e.printStackTrace();
         }

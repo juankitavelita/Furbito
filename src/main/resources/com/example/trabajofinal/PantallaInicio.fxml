@@ -23,6 +23,6 @@
         <Button layoutX="153.0" layoutY="248.0" mnemonicParsing="false" text="Selecciones"
                 fx:id="btnSel"/>
         <Button layoutX="328.0" layoutY="96.0" mnemonicParsing="false" text="Ligas"
-                fx:id="btnLigas"/>
+                fx:id="btnLigas" onAction="#verLigas"/>
     </children>
 </AnchorPane>
