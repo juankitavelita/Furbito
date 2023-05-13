@@ -1,10 +1,16 @@
 package com.example.trabajofinal;
+
+import javafx.beans.value.ObservableValue;
+
 public class Liga {
     private int id;
     private String nombre;
     private String pais;
 
     public Liga(String nombre, String pais) {
+    }
+
+    public Liga(int id, String nombre, String pais) {
     }
 
     public void Liga(int id, String nombre, String pais) {
@@ -35,5 +41,13 @@ public class Liga {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public ObservableValue<String> nombreProperty() {
+        return null;
+    }
+
+    public ObservableValue<String> paisProperty() {
+        return null;
     }
 }

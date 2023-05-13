@@ -1,59 +1,51 @@
 package com.example.trabajofinal;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Equipo {
-    private int id;
-    private String nombre;
-    private int rankingFifa;
-    private int numJugadores;
-    private int idLiga;
+    private IntegerProperty id;
+    private StringProperty nombre;
+    private IntegerProperty rankingFifa;
+    private IntegerProperty numJugadores;
+    private IntegerProperty idLiga;
+    private StringProperty liga;
+
+    public StringProperty ligaProperty() {
+        return liga;
+    }
 
     public Equipo(int id, String nombre, int rankingFifa, int numJugadores, int idLiga) {
-        this.id = id;
-        this.nombre = nombre;
-        this.rankingFifa = rankingFifa;
-        this.numJugadores = numJugadores;
-        this.idLiga = idLiga;
+        this.id = new SimpleIntegerProperty(id);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.rankingFifa = new SimpleIntegerProperty(rankingFifa);
+        this.numJugadores = new SimpleIntegerProperty(numJugadores);
+        this.idLiga = new SimpleIntegerProperty(idLiga);
     }
 
-    public Equipo(String nombre, int rankingFifa, int numJugadores, String nombreLiga) {
-    }
+    // Métodos de acceso a las propiedades
 
-    public int getId() {
+    public IntegerProperty idProperty() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
+    public StringProperty nombreProperty() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getRankingFifa() {
+    public IntegerProperty rankingFifaProperty() {
         return rankingFifa;
     }
 
-    public void setRankingFifa(int rankingFifa) {
-        this.rankingFifa = rankingFifa;
-    }
-
-    public int getNumJugadores() {
+    public IntegerProperty numJugadoresProperty() {
         return numJugadores;
     }
 
-    public void setNumJugadores(int numJugadores) {
-        this.numJugadores = numJugadores;
-    }
-
-    public int getIdLiga() {
+    public IntegerProperty idLigaProperty() {
         return idLiga;
     }
 
-    public void setIdLiga(int idLiga) {
-        this.idLiga = idLiga;
-    }
+    // Resto de métodos de la clase
 }
