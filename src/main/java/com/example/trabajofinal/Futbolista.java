@@ -17,7 +17,7 @@ public class Futbolista {
 
     private static final String URL = "jdbc:mysql://localhost:3306/futbol";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "contraseña";
+    private static final String CLAVE = "631534833Poly";
 
     public static ObservableList<Futbolista> obtenerFutbolistas() {
         ObservableList<Futbolista> futbolistas = FXCollections.observableArrayList();

@@ -22,6 +22,8 @@ public class InicioController {
     private Button btnSel;
     @FXML
     private Button btnLigas;
+    @FXML
+    private Button btnCerrar;
 
     @FXML
     private Label lblNombreUsuario;
@@ -31,6 +33,7 @@ public class InicioController {
         this.nombreUsuario = nombreUsuario;
         lblNombreUsuario.setText(nombreUsuario);
     }
+
     @FXML
     protected void verJugadores(ActionEvent event) {
         try {
@@ -49,7 +52,7 @@ public class InicioController {
 
             // Muestra la ventana de registro
             stage.show();
-        } catch (IOException ex){
+        } catch (IOException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -68,25 +71,16 @@ public class InicioController {
 
             SeleccionesController controlador = loader.getController();
 
-    @FXML
-    protected void verLigas(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ligas.fxml"));
-
-            Parent root = loader.load();
-
-            LigasController controlador = loader.getController();
-
             // Crea la escena de la ventana de registro
             Scene scene = new Scene(root);
 
-            // Obtiene la etapa actual (ventana) y establece la escena de la ventana de jugadores
-            Stage stage = (Stage) btnLigas.getScene().getWindow();
+            // Obtiene la etapa actual (ventana) y establece la escena de la ventana de Selecciones
+            Stage stage = (Stage) btnSel.getScene().getWindow();
             stage.setScene(scene);
 
             // Muestra la ventana de registro
             stage.show();
-        } catch (IOException ex){
+        } catch (IOException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -94,34 +88,64 @@ public class InicioController {
             alert.showAndWait();
         }
     }
-    @FXML
-    protected void verEquipos(ActionEvent event) {
+
+        @FXML
+        protected void verLigas (ActionEvent event){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Ligas.fxml"));
+
+                Parent root = loader.load();
+
+                LigasController controlador = loader.getController();
+
+                // Crea la escena de la ventana de registro
+                Scene scene = new Scene(root);
+
+                // Obtiene la etapa actual (ventana) y establece la escena de la ventana de Ligas
+                Stage stage = (Stage) btnLigas.getScene().getWindow();
+                stage.setScene(scene);
+
+                // Muestra la ventana de registro
+                stage.show();
+            } catch (IOException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText(ex.getMessage());
+                alert.showAndWait();
+            }
+        }
+        @FXML
+        protected void verEquipos (ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Equipos.fxml"));
 
             Parent root = loader.load();
 
             EquiposController controlador = loader.getController();
+            controlador.setNombreUsuario(nombreUsuario);
 
             // Crea la escena de la ventana de registro
             Scene scene = new Scene(root);
 
-            // Obtiene la etapa actual (ventana) y establece la escena de la ventana de jugadores
-
-            Stage stage = (Stage) btnSel.getScene().getWindow();
-
+            // Obtiene la etapa actual (ventana) y establece la escena de la ventana de Equipos
             Stage stage = (Stage) btnEquipos.getScene().getWindow();
-
             stage.setScene(scene);
 
             // Muestra la ventana de registro
             stage.show();
-        } catch (IOException ex){
+        } catch (IOException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText(ex.getMessage());
             alert.showAndWait();
         }
+        }
+
+    @FXML
+    protected void cerrar(ActionEvent event) {
+        Stage stage = (Stage) btnCerrar.getScene().getWindow();
+        stage.close();
     }
-}
+    }

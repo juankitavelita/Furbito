@@ -32,8 +32,8 @@ public class BBDDTest {
                     "FOREIGN KEY (id_equipo) REFERENCES equipo(id), FOREIGN KEY (id_seleccion) REFERENCES seleccion (id))");
             //datos de usuarios registrados
             smt.executeUpdate("CREATE TABLE usuarios (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
-                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20), id_seleccionFav int, " +
-                    "FOREIGN KEY (id_seleccionFav) REFERENCES seleccion(id))");
+                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20), id_equipoFav int, " +
+                    "FOREIGN KEY (id_equipoFav) REFERENCES equipo(id))");
             // introducción de datos en nacional
             String nombre_nacional[] = {"LaLiga", "Premier League", "Ligue One", "Bundesliga", "Serie A"};
             String pais[] = {"España", "Inglaterra", "Francia", "Alemania", "Italia"};

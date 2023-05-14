@@ -11,10 +11,12 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnEquipos" layoutX="202.0" layoutY="175.0" mnemonicParsing="false" text="Equipos" />
-        <Button fx:id="btnJugadores" layoutX="191.0" layoutY="96.0" mnemonicParsing="false" onAction="#verJugadores" text="Jugadores" />
-        <Button fx:id="btnSel" layoutX="183.0" layoutY="245.0" mnemonicParsing="false" onAction="#verSeleciones" text="Selecciones" />
-        <Button fx:id="btnLigas" layoutX="354.0" layoutY="96.0" mnemonicParsing="false" text="Ligas" />
+        <Button fx:id="btnEquipos" layoutX="338.0" layoutY="204.0" mnemonicParsing="false" onAction="#verEquipos" text="Equipos" />
+        <Button fx:id="btnJugadores" layoutX="191.0" layoutY="117.0" mnemonicParsing="false" onAction="#verJugadores" text="Jugadores" />
+        <Button fx:id="btnSel" layoutX="187.0" layoutY="204.0" mnemonicParsing="false" onAction="#verSeleciones" text="Selecciones" />
+        <Button fx:id="btnLigas" layoutX="354.0" layoutY="117.0" mnemonicParsing="false" onAction="#verLigas" text="Ligas" />
+        <Button fx:id="btnCerrar" layoutX="275.0" layoutY="304.0" mnemonicParsing="false" text="Cerrar" onAction="#cerrar"/>
       <Label fx:id="lblNombreUsuario" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="78.0" />
+
     </children>
 </AnchorPane>
