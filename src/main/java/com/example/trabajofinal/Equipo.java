@@ -5,12 +5,15 @@ public class Equipo {
     private int rankingFifa;
     private int numJugadores;
     private String nombreLiga;
+    private int id;
 
-    public Equipo(String nombre, int rankingFifa, int numJugadores, String nombreLiga) {
+    public Equipo(String nombre, int rankingFifa, int numJugadores, String nombreLiga, int id) {
         this.nombre = nombre;
         this.rankingFifa = rankingFifa;
         this.numJugadores = numJugadores;
         this.nombreLiga = nombreLiga;
+        this.id = id;
+
     }
 
     // Getters y setters
@@ -45,5 +48,13 @@ public class Equipo {
 
     public void setNombreLiga(String nombreLiga) {
         this.nombreLiga = nombreLiga;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

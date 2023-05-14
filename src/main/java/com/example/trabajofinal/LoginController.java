@@ -33,7 +33,7 @@ public class LoginController {
         try {
             // Conectarse a la base de datos
             conn = DriverManager.getConnection("jdbc:mysql://localhost/futbol", "root",
-                    "contraseña");
+                    "631534833Poly");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,11 +67,11 @@ public class LoginController {
         try {
             if (conexion.verificarUsuario(nombreUsuario, contraseña)) {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaInicio.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Equipos.fxml"));
 
                 Parent root = loader.load();
 
-                InicioController controlador = loader.getController();
+                EquiposController controlador = loader.getController();
                 controlador.setNombreUsuario(nombreUsuario);
 
                 Scene scene = new Scene(root);

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="511.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.LigasController">
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.LigasController">
    <children>
-      <TableView fx:id="ligas" layoutX="38.0" layoutY="43.0" prefHeight="411.0" prefWidth="530.0">
+      <TableView fx:id="ligas" layoutX="28.0" layoutY="21.0" prefHeight="344.0" prefWidth="540.0">
         <columns>
-          <TableColumn fx:id="columnaLigas" prefWidth="172.0" text="Nombre" />
-            <TableColumn fx:id="columnaPais" prefWidth="189.0" text="Pais" />
-            <TableColumn prefWidth="168.0" text="Número de equipos" />
+          <TableColumn fx:id="columnaLigas" prefWidth="270.0" text="Nombre" />
+            <TableColumn fx:id="columnaPais" prefWidth="269.0" text="Pais" />
         </columns>
       </TableView>
+       <Button fx:id="btnVolver" layoutX="28.0" layoutY="381.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
    </children>
 </AnchorPane>

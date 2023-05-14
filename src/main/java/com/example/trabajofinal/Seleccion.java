@@ -44,9 +44,11 @@ public class Seleccion {
     public SimpleStringProperty getNombre() {
         return nombre;
     }
+
     public SimpleIntegerProperty getRanking(){
         return ranking;
     }
+
     public SimpleIntegerProperty getNumJugadores(){
         return numJugadores;
     }

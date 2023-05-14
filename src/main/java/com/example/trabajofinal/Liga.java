@@ -5,6 +5,7 @@ public class Liga {
     private String nombre;
     private String pais;
 
+
     public Liga(String nombre, String pais) {
         this.id = id;
         this.nombre = nombre;

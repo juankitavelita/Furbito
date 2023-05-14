@@ -13,7 +13,5 @@
             </columns>
         </TableView>
         <Button fx:id="btnVolver" layoutX="38.0" layoutY="381.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
-      <Button fx:id="btnFavorito" layoutX="237.0" layoutY="381.0" mnemonicParsing="false" text="Favorito"
-      onAction="#seleccionFavorita"/>
     </children>
 </AnchorPane>
