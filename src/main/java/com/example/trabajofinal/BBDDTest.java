@@ -2,16 +2,16 @@ package com.example.trabajofinal;
 import java.sql.*;
 
 public class BBDDTest {
-    public static void main(String[] args) throws SQLException {
+    public void crearBaseDatos() throws SQLException {
         Connection dbConnection=null;
         try{
             dbConnection= DriverManager.getConnection("jdbc:mysql://localhost:3306/futbol","root",
-                    "contraseña");
+                    "631534833Poly");
             Statement smt = dbConnection.createStatement();
             // consulta para verificar si las tablas ya existen
-            ResultSet rs = smt.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'futbol' AND table_name IN ('comp_selecciones', 'europa', 'nacional', 'seleccion', 'equipo', 'futbolista', 'usuarios')");
+            ResultSet rs = smt.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'futbol' AND table_name IN ('nacional', 'seleccion', 'equipo', 'futbolista', 'usuarios')");
 
-            if (((ResultSet) rs).next() && rs.getInt(1) == 7) {
+            if (((ResultSet) rs).next() && rs.getInt(1) == 5) {
                 System.out.println("Las tablas ya existen en la base de datos.");
                 return;
             }
@@ -32,10 +32,9 @@ public class BBDDTest {
                     "FOREIGN KEY (id_equipo) REFERENCES equipo(id), FOREIGN KEY (id_seleccion) REFERENCES seleccion (id))");
             //datos de usuarios registrados
             smt.executeUpdate("CREATE TABLE usuarios (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
-                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20))");
-
-            // introducción de datos
-            //nacional
+                    "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20), id_seleccionFav int, " +
+                    "FOREIGN KEY (id_seleccionFav) REFERENCES seleccion(id))");
+            // introducción de datos en nacional
             String nombre_nacional[] = {"LaLiga", "Premier League", "Ligue One", "Bundesliga", "Serie A"};
             String pais[] = {"España", "Inglaterra", "Francia", "Alemania", "Italia"};
             int num_equipo_nac[] = {20, 20, 20, 18, 20};
@@ -58,13 +57,15 @@ public class BBDDTest {
                 smt.executeUpdate("INSERT INTO equipo (nombre, ranking_fifa, num_jugadores, id_liga) VALUES ('" + nombre_equipo[i] + "', " + ranking[i] + ", " + num_jug_equipo[i] + ", " + liga[i] + ")");
             }
             //jugadores
-            String nombre_jugador[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben", "Eder", "Lionel", "Marco", "Presnel", "Gianluigi", ""};
-            String apellido_jugador[] = {"Ronaldo", "Modric", "Militao", "Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias", "Moraes", "Messi", "Verratti", "Kimpembe", "Donnarumma"};
-            String posición[] = {"DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR"};
+            String nombre[] = {"Cristiano", "Luka", "Eder", "Thibout", "Raphael", "Frenkie", "Jules", "Iñaki", "Jack", "Kevin", "Ruben", "Eder", "Lionel", "Marco", "Presnel", "Gianluigi"};
+            String apellido[] = {"Ronaldo", "Modric", "Militao","Courtois", "Dias", "de Jong", "Koundé", "Peña", "Grealish", "de Bruyne", "Dias", "Moraes", "Messi", "Verratti", "Kimpembe", "Donnarumma"};
+            String posicion[] = {"DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR", "DEL", "MED", "DEF", "POR"};
             int dorsal[] = {7, 10, 3, 1, 22, 21, 23, 13, 10, 17, 3, 31, 30, 6, 3, 99};
-            int equipo[] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4};
-            int seleccion[] = {9, 7, 3, 4, 3, 6, 2, 10, 5, 4, 9, 3, 1, 8, 2, 8};
-            for (int i = 0; i < nombre_equipo.length; i++){
+            int id_equipo[] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 5, 5, 5, 5};
+            int id_seleccion[] = {9, 7, 3, 4, 3, 6, 2, 10, 5, 4, 9, 3, 1, 8, 2, 8};
+            for (int i = 0; i < nombre.length; i++){
+                smt.executeUpdate("INSERT INTO futbolista (nombre, apellido, id_equipo, posicion, dorsal, id_seleccion) VALUES ('" + nombre[i] + "', '"
+                        + apellido[i] + "', '" + id_equipo[i] + "', '" + posicion[i] + "', '" + dorsal[i] + "', '" + id_seleccion[i] + "')");
             }
         }catch (Exception e){
             e.printStackTrace();

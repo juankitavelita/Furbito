@@ -4,25 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.InicioController">
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.InicioController">
     <children>
-        <Label layoutX="209.0" layoutY="43.0" text="¿Que datos quieres ver?">
+        <Label layoutX="226.0" layoutY="44.0" text="¿Que datos quieres ver?">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Button layoutX="328.0" layoutY="248.0" mnemonicParsing="false" text="Competiciones europeas"
-                fx:id="btnCompEu"/>
-        <Button layoutX="153.0" layoutY="176.0" mnemonicParsing="false" text="Equipos"
-                fx:id="btnEquipos" onAction="#verEquipos"/>
-        <Button layoutX="157.0" layoutY="96.0" mnemonicParsing="false" text="Jugadores"
-                fx:id="btnJugadores" onAction="#verJugadores"/>
-        <Button layoutX="328.0" layoutY="176.0" mnemonicParsing="false" text="Competiciones de selecciones"
-                fx:id="btnCompSel"/>
-        <Button layoutX="153.0" layoutY="248.0" mnemonicParsing="false" text="Selecciones"
-                fx:id="btnSel"/>
-        <Button layoutX="328.0" layoutY="96.0" mnemonicParsing="false" text="Ligas"
-                fx:id="btnLigas" onAction="#verLigas"/>
+        <Button fx:id="btnEquipos" layoutX="202.0" layoutY="175.0" mnemonicParsing="false" text="Equipos" />
+        <Button fx:id="btnJugadores" layoutX="191.0" layoutY="96.0" mnemonicParsing="false" onAction="#verJugadores" text="Jugadores" />
+        <Button fx:id="btnSel" layoutX="183.0" layoutY="245.0" mnemonicParsing="false" onAction="#verSeleciones" text="Selecciones" />
+        <Button fx:id="btnLigas" layoutX="354.0" layoutY="96.0" mnemonicParsing="false" text="Ligas" />
+      <Label fx:id="lblNombreUsuario" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="78.0" />
     </children>
 </AnchorPane>

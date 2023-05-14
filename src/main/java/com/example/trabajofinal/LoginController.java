@@ -20,10 +20,14 @@ public class LoginController {
     private Button btnEntrar;
     @FXML
     private Button btnVolver;
-    @FXML
-    private Label errorLabel;
 
     private Connection conn;
+    private String nombreUsuario;
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
 
     public LoginController(){
         try {
@@ -39,12 +43,16 @@ public class LoginController {
 
         try {
             // Verificar si el usuario existe en la base de datos
-            String sql = "SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?";
+            String sql = "SELECT usuario FROM usuarios WHERE usuario = ? AND contrasena = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario);
             stmt.setString(2, contrasena);
             ResultSet rs = stmt.executeQuery();
             resultado = rs.next();
+            if (rs.next()) {
+                nombreUsuario = usuario;
+                resultado = true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,6 +72,7 @@ public class LoginController {
                 Parent root = loader.load();
 
                 InicioController controlador = loader.getController();
+                controlador.setNombreUsuario(nombreUsuario);
 
                 Scene scene = new Scene(root);
 

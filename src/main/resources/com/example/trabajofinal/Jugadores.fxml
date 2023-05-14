@@ -3,9 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="444.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.FutbolistaController">
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.JugadoresController">
    <children>
-      <TableView fx:id="table" layoutX="40.0" layoutY="24.0" prefHeight="360.0" prefWidth="449.0">
+      <TableView fx:id="table" layoutX="38.0" layoutY="14.0" prefHeight="360.0" prefWidth="449.0">
          <columns>
             <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
             <TableColumn fx:id="apellidoColumn" prefWidth="75.0" text="Apellido" />
@@ -15,7 +15,7 @@
             <TableColumn fx:id="seleccionColumn" prefWidth="75.0" text="Seleccion" />
          </columns>
       </TableView>
-      <Button fx:id="btnVolver" layoutX="40.0" layoutY="393.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
-      <Button fx:id="btnImprimir" layoutX="213.0" layoutY="393.0" mnemonicParsing="false" text="Imprimir Datos" />
+      <Button fx:id="btnVolver" layoutX="38.0" layoutY="381.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
+      <Button fx:id="btnImprimir" layoutX="215.0" layoutY="381.0" mnemonicParsing="false" onAction="#imprimirDatos" text="Imprimir Datos" />
    </children>
 </AnchorPane>

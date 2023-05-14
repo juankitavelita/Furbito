@@ -4,41 +4,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.RegistroController">
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.RegistroController">
    <children>
-      <Label layoutX="232.0" layoutY="45.0" text="REGISTRO DE USUARIO">
+      <Label layoutX="247.0" layoutY="48.0" text="REGISTRO DE USUARIO">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <Label layoutX="92.0" layoutY="89.0" text="Nombre:">
+      <Label layoutX="154.0" layoutY="89.0" text="Nombre:">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <Label layoutX="92.0" layoutY="139.0" text="Apellido:">
+      <Label layoutX="140.0" layoutY="139.0" text="Apellido:">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <Label layoutX="92.0" layoutY="192.0" text="Usuario:">
+      <Label layoutX="147.0" layoutY="192.0" text="Usuario:">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <Label layoutX="92.0" layoutY="244.0" text="Contraseña:">
+      <Label layoutX="125.0" layoutY="244.0" text="Contraseña:">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <TextField fx:id="txtNombre" layoutX="226.0" layoutY="85.0" promptText="Introduce tu nombre" />
-      <TextField fx:id="txtApellido" layoutX="226.0" layoutY="135.0" promptText="Introduce tu apellido" />
-      <TextField fx:id="txtUsuario" layoutX="226.0" layoutY="188.0" promptText="Crea tu usuario" />
-      <PasswordField fx:id="pswContra" layoutX="226.0" layoutY="240.0" promptText="Crea tu contraseña" />
-      <Button fx:id="btnGuardar" layoutX="226.0" layoutY="298.0" mnemonicParsing="false" text="Guardar"
-      onAction="#guardar">
+      <TextField fx:id="txtNombre" layoutX="241.0" layoutY="84.0" promptText="Introduce tu nombre" />
+      <TextField fx:id="txtApellido" layoutX="241.0" layoutY="134.0" promptText="Introduce tu apellido" />
+      <TextField fx:id="txtUsuario" layoutX="241.0" layoutY="187.0" promptText="Crea tu usuario" />
+      <PasswordField fx:id="pswContra" layoutX="241.0" layoutY="239.0" promptText="Crea tu contraseña" />
+      <Button fx:id="btnGuardar" layoutX="241.0" layoutY="298.0" mnemonicParsing="false" onAction="#guardar" text="Guardar">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnVolver" layoutX="315.0" layoutY="298.0" mnemonicParsing="false" text="Volver"
-              onAction="#volver">
+      <Button fx:id="btnVolver" layoutX="330.0" layoutY="298.0" mnemonicParsing="false" onAction="#volver" text="Volver">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font>

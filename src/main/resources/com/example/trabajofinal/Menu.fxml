@@ -4,20 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="309.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.MenuController">
    <children>
-      <Label layoutX="167.0" layoutY="41.0" prefHeight="22.0" prefWidth="37.0" text="MENÚ">
+      <Label layoutX="204.0" layoutY="78.0" prefHeight="22.0" prefWidth="224.0" text="SELECCIONE UNA DE LAS OPCIONES">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Label>
-      <Button fx:id="btnLogin" layoutX="94.0" layoutY="106.0" mnemonicParsing="false" prefHeight="25.0"
-              prefWidth="179.0" text="LOGIN" onAction="#iniciarSesion">
+      <Button fx:id="btnLogin" layoutX="211.0" layoutY="143.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="25.0" prefWidth="179.0" text="LOGIN">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Button>
-      <Button fx:id="btnRegistro" layoutX="94.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0"
-              prefWidth="179.0" text="REGISTRARSE" onAction="#registroUsuario">
+      <Button fx:id="btnRegistro" layoutX="211.0" layoutY="242.0" mnemonicParsing="false" onAction="#registroUsuario" prefHeight="25.0" prefWidth="179.0" text="REGISTRARSE">
          <font>
             <Font name="Droid Sans Mono" size="12.0" />
          </font></Button>
