@@ -1,107 +1,52 @@
 package com.example.trabajofinal;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
-public class LigasController {
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+public class LigasController implements Initializable {
     @FXML
     private TableView<Liga> ligas;
-
     @FXML
     private TableColumn<Liga, String> columnaLigas;
-
     @FXML
     private TableColumn<Liga, String> columnaPais;
 
-    @FXML
-    private TableView<Equipo> equipos;
+    // Método para configurar las columnas de la TableView de ligas
+    private void configurarColumnasLigas() {
+        columnaLigas.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnaPais.setCellValueFactory(new PropertyValueFactory<>("pais"));
+    }
 
-    @FXML
-    private TableColumn<Equipo, String> columnaNombre;
-
-    @FXML
-    private TableColumn<Equipo, Integer> columnaRanking;
-
-    @FXML
-    private TableColumn<Equipo, Integer> columnaJugadores;
-
-    @FXML
-    private TableColumn<Equipo, String> columnaLiga;
-
-    @FXML
-    private Button btnSeleccionar;
-
-    private Connection connection;
-
-    public void initialize() {
-        // Establecer conexión con la base de datos
-        String url = "jdbc:mysql://localhost/futbol?user=root&password=contraseña";
+    // Método para cargar los datos de las ligas en la TableView
+    private void cargarDatosLigas() {
         try {
-            connection = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futbol", "root", "contraseña");
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM nacional");
 
-        // Configurar columnas de la tabla ligas
-        columnaLigas.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        columnaPais.setCellValueFactory(cellData -> cellData.getValue().paisProperty());
-
-        // Configurar columnas de la tabla equipos
-        columnaNombre.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        columnaRanking.setCellValueFactory(cellData -> cellData.getValue().rankingFifaProperty().asObject());
-        columnaJugadores.setCellValueFactory(cellData -> cellData.getValue().numJugadoresProperty().asObject());
-        columnaLiga.setCellValueFactory(cellData -> cellData.getValue().ligaProperty());
-
-        // Cargar ligas desde la tabla nacional
-        cargarLigas();
-    }
-
-    private void cargarLigas() {
-        String query = "SELECT id, nombre, pais FROM nacional";
-        try (PreparedStatement statement = connection.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()) {
+            ligas.getItems().clear();
 
             while (resultSet.next()) {
-                Liga liga = new Liga(resultSet.getInt("id"), resultSet.getString("nombre"), resultSet.getString("pais"));
-                ligas.getItems().add(liga);
+                String nombre = resultSet.getString("nombre");
+                String pais = resultSet.getString("pais");
+
+                ligas.getItems().add(new Liga(nombre, pais));
             }
+
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private void seleccionarLiga() {
-        Liga ligaSeleccionada = ligas.getSelectionModel().getSelectedItem();
-        if (ligaSeleccionada != null) {
-            cargarEquipos(ligaSeleccionada.getId());
-        }
-    }
-
-    private void cargarEquipos(int idLiga) {
-        equipos.getItems().clear();
-
-        String query = "SELECT id, nombre, ranking_fifa, num_jugadores, id_liga FROM equipo WHERE id_liga = ?";
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, idLiga);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                Equipo equipo = new Equipo(resultSet.getInt("id"), resultSet.getString("nombre"),
-                        resultSet.getInt("ranking_fifa"), resultSet.getInt("num_jugadores"),
-                        resultSet.getInt("id_liga"));
-                equipos.getItems().add(equipo);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    // Método que se ejecuta al cargar el FXML
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        configurarColumnasLigas();
+        cargarDatosLigas();
     }
 }
