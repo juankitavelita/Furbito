@@ -1,29 +1,19 @@
 package com.example.trabajofinal;
+
 public class Equipo {
-    private int id;
     private String nombre;
     private int rankingFifa;
     private int numJugadores;
-    private int idLiga;
+    private String nombreLiga;
 
-    public Equipo(int id, String nombre, int rankingFifa, int numJugadores, int idLiga) {
-        this.id = id;
+    public Equipo(String nombre, int rankingFifa, int numJugadores, String nombreLiga) {
         this.nombre = nombre;
         this.rankingFifa = rankingFifa;
         this.numJugadores = numJugadores;
-        this.idLiga = idLiga;
+        this.nombreLiga = nombreLiga;
     }
 
-    public Equipo(String nombre, int rankingFifa, int numJugadores, String nombreLiga) {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    // Getters y setters
 
     public String getNombre() {
         return nombre;
@@ -49,11 +39,11 @@ public class Equipo {
         this.numJugadores = numJugadores;
     }
 
-    public int getIdLiga() {
-        return idLiga;
+    public String getNombreLiga() {
+        return nombreLiga;
     }
 
-    public void setIdLiga(int idLiga) {
-        this.idLiga = idLiga;
+    public void setNombreLiga(String nombreLiga) {
+        this.nombreLiga = nombreLiga;
     }
 }

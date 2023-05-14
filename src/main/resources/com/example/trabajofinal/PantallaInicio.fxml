@@ -15,7 +15,7 @@
         <Button layoutX="328.0" layoutY="248.0" mnemonicParsing="false" text="Competiciones europeas"
                 fx:id="btnCompEu"/>
         <Button layoutX="153.0" layoutY="176.0" mnemonicParsing="false" text="Equipos"
-                fx:id="btnEquipos"/>
+                fx:id="btnEquipos" onAction="#verEquipos"/>
         <Button layoutX="157.0" layoutY="96.0" mnemonicParsing="false" text="Jugadores"
                 fx:id="btnJugadores" onAction="#verJugadores"/>
         <Button layoutX="328.0" layoutY="176.0" mnemonicParsing="false" text="Competiciones de selecciones"
