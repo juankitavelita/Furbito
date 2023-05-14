@@ -34,7 +34,6 @@ public class BBDDTest {
             smt.executeUpdate("CREATE TABLE usuarios (id INT AUTO_INCREMENT, PRIMARY KEY (id), " +
                     "nombre VARCHAR(20), apellido VARCHAR(20), usuario VARCHAR(30), contrasena VARCHAR(20), id_seleccionFav int, " +
                     "FOREIGN KEY (id_seleccionFav) REFERENCES seleccion(id))");
-
             // introducción de datos en nacional
             String nombre_nacional[] = {"LaLiga", "Premier League", "Ligue One", "Bundesliga", "Serie A"};
             String pais[] = {"España", "Inglaterra", "Francia", "Alemania", "Italia"};

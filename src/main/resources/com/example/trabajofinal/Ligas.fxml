@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="511.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.LigasController">
+   <children>
+      <TableView fx:id="ligas" layoutX="38.0" layoutY="43.0" prefHeight="411.0" prefWidth="530.0">
+        <columns>
+          <TableColumn fx:id="columnaLigas" prefWidth="172.0" text="Nombre" />
+            <TableColumn fx:id="columnaPais" prefWidth="189.0" text="Pais" />
+            <TableColumn prefWidth="168.0" text="Número de equipos" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
