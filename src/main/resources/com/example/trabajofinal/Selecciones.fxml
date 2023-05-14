@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabajofinal.SeleccionesController">
+    <children>
+        <TableView fx:id="table" layoutX="38.0" layoutY="14.0" prefHeight="360.0" prefWidth="449.0">
+            <columns>
+                <TableColumn fx:id="nombreColumn" prefWidth="179.0" text="Nombre" />
+                <TableColumn fx:id="rankingColumn" prefWidth="137.0" text="Ranking Fifa" />
+                <TableColumn fx:id="numColumn" prefWidth="132.0" text="Nª Jugadores" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnVolver" layoutX="38.0" layoutY="381.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
+      <Button fx:id="btnFavorito" layoutX="237.0" layoutY="381.0" mnemonicParsing="false" text="Favorito"
+      onAction="#seleccionFavorita"/>
+    </children>
+</AnchorPane>
